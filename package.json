@@ -1,0 +1,35 @@
+{
+  "name": "valido",
+  "version": "1.0.0",
+  "description": "Validation provider",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moooji/valido.git"
+  },
+  "keywords": [
+    "validation"
+  ],
+  "author": "Steffen Strätz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moooji/valido/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "jscs": "^2.1.1",
+    "mocha": "^2.2.5",
+    "mocha-jscs": "^2.0.0",
+    "mocha-jshint": "^2.2.3"
+  }
+}
