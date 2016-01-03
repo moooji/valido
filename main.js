@@ -4,31 +4,35 @@ const isWebUrl = require('./validators/isWebUrl');
 const isHexColor = require('./validators/isHexColor');
 const isString = require('./validators/isString');
 const isArray = require('./validators/isArray');
+const isNull = require('./validators/isNull');
+const isUndefined = require('./validators/isUndefined');
 
 const validators = {
   isWebUrl,
   isHexColor,
   isString,
-  isArray
+  isArray,
+  isNull,
+  isUndefined
 };
 
-const api = { array: {} };
+const api = { every: {} };
 
 Object.getOwnPropertyNames(validators).forEach((validatorName) => {
   const validator = validators[validatorName];
   api[validatorName] = validator.validate;
-  api.array[validatorName] = (values, options) => validateArray(values, validator, options);
+  api.every[validatorName] = (values, options) => validateEvery(values, validator, options);
 });
 
 /**
- * Validates an array of values
+ * Validates a list of values
  *
  * @param {Array<*>} values - Values
  * @param {object} validator - Validator
  * @param {object} options - Options
  * @returns {Boolean}
  */
-function validateArray(values, validator, options) {
+function validateEvery(values, validator, options) {
   if (!isArray.validate(values)) {
     return false;
   }

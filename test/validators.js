@@ -37,18 +37,18 @@ validatorFiles.forEach((file) => {
     it('should validate a list of values', () => {
       validator.tests.forEach((test) => {
         const values = [test.value, test.value];
-        return expect(valido.array[validatorName](values, test.options))
+        return expect(valido.every[validatorName](values, test.options))
           .to.equal(test.result);
       });
     });
 
     it('should validate an empty list to false', () => {
-      return expect(valido.array[validatorName]([]))
+      return expect(valido.every[validatorName]([]))
         .to.equal(false);
     });
 
     it('should validate an empty list to true if "allowEmpty" is true', () => {
-      return expect(valido.array[validatorName]([], { allowEmpty: true }))
+      return expect(valido.every[validatorName]([], { allowEmpty: true }))
         .to.equal(true);
     });
   });
