@@ -6,6 +6,9 @@ const isString = require('./validators/isString');
 const isArray = require('./validators/isArray');
 const isNull = require('./validators/isNull');
 const isUndefined = require('./validators/isUndefined');
+const isInteger = require('./validators/isInteger');
+const isFinite = require('./validators/isFinite');
+const isNatural = require('./validators/isNatural');
 
 const validators = {
   isWebUrl,
@@ -13,7 +16,10 @@ const validators = {
   isString,
   isArray,
   isNull,
-  isUndefined
+  isUndefined,
+  isInteger,
+  isFinite,
+  isNatural
 };
 
 const api = { every: {} };
