@@ -66,8 +66,14 @@ function validate(value, options) {
 
   let isWebUrl = value.match(re) !== null;
 
-  // Check for trailing slash
-  if (options && options.trailingSlash && !value.endsWith('/')) {
+  if (!options) {
+    return isWebUrl;
+  }
+
+  // Optional checks
+  if (options.endsWith && !value.endsWith(options.endsWith)) {
+    isWebUrl = false;
+  } else if (options.startsWith && !value.startsWith(options.startsWith)) {
     isWebUrl = false;
   }
 
@@ -96,7 +102,11 @@ const tests = [
   { value: 'http://google.com', result: true },
   { value: 'https://www.google.com', result: true },
   { value: 'https://8.8.8.8:3128', result: true },
-  { value: 'https://pass:bob@www.google.com:8080/index.html?param=2&yy=abc', result: true }
+  { value: 'https://pass:bob@www.google.com:8080/index.html?param=2&yy=abc', result: true },
+  { value: 'https://www.google.com', options: { endsWith: '/' }, result: false },
+  { value: 'https://www.google.com/', options: { endsWith: '/' }, result: true },
+  { value: 'https://www.google.com', options: { startsWith: 'https://www.ebay' }, result: false },
+  { value: 'https://www.google.com/', options: { startsWith: 'https://www.google' }, result: true }
 ];
 
 module.exports = { validate, tests };

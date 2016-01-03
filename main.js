@@ -17,7 +17,7 @@ const api = { array: {} };
 Object.getOwnPropertyNames(validators).forEach((validatorName) => {
   const validator = validators[validatorName];
   api[validatorName] = validator.validate;
-  api.array[validatorName] = (values, allowEmpty) => validateArray(values, validator, allowEmpty);
+  api.array[validatorName] = (values, options) => validateArray(values, validator, options);
 });
 
 /**
@@ -25,19 +25,19 @@ Object.getOwnPropertyNames(validators).forEach((validatorName) => {
  *
  * @param {Array<*>} values - Values
  * @param {object} validator - Validator
- * @param {Boolean} allowEmpty - Allow empty array
+ * @param {object} options - Options
  * @returns {Boolean}
  */
-function validateArray(values, validator, allowEmpty) {
+function validateArray(values, validator, options) {
   if (!isArray.validate(values)) {
     return false;
   }
 
-  if (!allowEmpty && !values.length) {
+  if (!(options && options.allowEmpty) && !values.length) {
     return false;
   }
 
-  return values.every(validator.validate);
+  return values.every((value) => validator.validate(value, options));
 }
 
 module.exports = api;

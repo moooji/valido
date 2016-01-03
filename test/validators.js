@@ -34,14 +34,12 @@ validatorFiles.forEach((file) => {
       });
     });
 
-    it('should validate a list of values (valid samples)', () => {
-      return expect(valido.array[validatorName](validValues))
-        .to.equal(true);
-    });
-
-    it('should validate a list of invalid values (invalid samples)', () => {
-      return expect(valido.array[validatorName](invalidValues))
-        .to.equal(false);
+    it('should validate a list of values', () => {
+      validator.tests.forEach((test) => {
+        const values = [test.value, test.value];
+        return expect(valido.array[validatorName](values, test.options))
+          .to.equal(test.result);
+      });
     });
 
     it('should validate an empty list to false', () => {
@@ -50,7 +48,7 @@ validatorFiles.forEach((file) => {
     });
 
     it('should validate an empty list to true if "allowEmpty" is true', () => {
-      return expect(valido.array[validatorName]([], true))
+      return expect(valido.array[validatorName]([], { allowEmpty: true }))
         .to.equal(true);
     });
   });
