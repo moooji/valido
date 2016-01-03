@@ -73,7 +73,9 @@ function validate(value, options) {
   // Optional checks
   if (options.endsWith && !value.endsWith(options.endsWith)) {
     isWebUrl = false;
-  } else if (options.startsWith && !value.startsWith(options.startsWith)) {
+  }
+
+  if (options.startsWith && !value.startsWith(options.startsWith)) {
     isWebUrl = false;
   }
 
@@ -106,7 +108,10 @@ const tests = [
   { value: 'https://www.google.com', options: { endsWith: '/' }, result: false },
   { value: 'https://www.google.com/', options: { endsWith: '/' }, result: true },
   { value: 'https://www.google.com', options: { startsWith: 'https://www.ebay' }, result: false },
-  { value: 'https://www.google.com/', options: { startsWith: 'https://www.google' }, result: true }
+  { value: 'https://www.google.com/', options: { startsWith: 'https://www.google' }, result: true },
+  { value: 'https://www.google.com/', options: { startsWith: 'https://www.google', endsWith: '/' }, result: true },
+  { value: 'https://www.google.com', options: { startsWith: 'https://www.google', endsWith: '/' }, result: false },
+  { value: 'https://www.google.com/', options: { startsWith: 'https://www.ebay', endsWith: '/' }, result: false }
 ];
 
 module.exports = { validate, tests };
