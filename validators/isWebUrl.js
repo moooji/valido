@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const isString = require('./isString').validate;
 
 // Based on
 // https://gist.github.com/o5/6cb4b0178c5a509cad03
@@ -54,20 +54,20 @@ const re = new RegExp(
 
 /**
  * Checks if string is a valid url
- * @param {Array<String>} url - URL
+ * @param {String} value - Value
  * @param {object} [options] - Additional options
  * @returns {Boolean}
  */
 
-function validate(url, options) {
-  if (!_.isString(url)) {
+function validate(value, options) {
+  if (!isString(value)) {
     return false;
   }
 
-  let isWebUrl = url.match(re) !== null;
+  let isWebUrl = value.match(re) !== null;
 
   // Check for trailing slash
-  if (options && options.trailingSlash && !url.endsWith('/')) {
+  if (options && options.trailingSlash && !value.endsWith('/')) {
     isWebUrl = false;
   }
 

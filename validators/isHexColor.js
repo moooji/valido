@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const isString = require('./isString').validate;
 const re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
 /**
@@ -11,7 +11,7 @@ const re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
  */
 
 function validate(hexColor) {
-  if (!_.isString(hexColor)) {
+  if (!isString(hexColor)) {
     return false;
   }
 
