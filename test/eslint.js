@@ -1,3 +1,1 @@
-/**
- * Created by steve on 03/01/16.
- */
+require('mocha-eslint')(['./']);

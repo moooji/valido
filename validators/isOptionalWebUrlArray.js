@@ -11,35 +11,31 @@ const isWebUrl = require('./isWebUrl').validate;
  */
 
 function validate(urls) {
-
-  // Not an array - False
   if (!Array.isArray(urls)) {
     return false;
   }
 
-  // Empty array - True
   if (urls.length === 0) {
     return true;
   }
 
-  // Array of URLs
   return _.every(urls, (url) => {
     return isWebUrl(url);
   });
 }
 
 const tests = [
-  {value: null, result: false},
-  {value: undefined, result: false},
-  {value: '', result: false},
-  {value: 1, result: false},
-  {value: 'abc', result: false},
-  {value: {}, result: false},
-  {value: [''], result: false},
-  {value: [123], result: false},
-  {value: ['abc'], result: false},
-  {value: [{}], result: false},
-  {value: [], result: true},
+  { value: null, result: false },
+  { value: undefined, result: false },
+  { value: '', result: false },
+  { value: 1, result: false },
+  { value: 'abc', result: false },
+  { value: {}, result: false },
+  { value: [''], result: false },
+  { value: [123], result: false },
+  { value: ['abc'], result: false },
+  { value: [{}], result: false },
+  { value: [], result: true },
   {
     value: [
       'http://www.google.com',
@@ -48,7 +44,4 @@ const tests = [
   }
 ];
 
-module.exports = {
-  validate: validate,
-  tests: tests
-};
+module.exports = { validate, tests };

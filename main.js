@@ -5,7 +5,7 @@ const isOptionalWebUrlArray = require('./validators/isOptionalWebUrlArray').vali
 const isHexColor = require('./validators/isHexColor').validate;
 
 module.exports = {
-  isWebUrl: isWebUrl,
-  isOptionalWebUrlArray: isOptionalWebUrlArray,
-  isHexColor: isHexColor
+  isWebUrl,
+  isOptionalWebUrlArray,
+  isHexColor
 };
