@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const chai = require('chai');
-const valido = require('../src/main');
+const valido = require('../dist/main');
 const expect = chai.expect;
 
-const validatorDir = path.join(__dirname, '../src/validators');
+const validatorDir = path.join(__dirname, '../dist/validators');
 const validatorFiles = fs.readdirSync(validatorDir);
 
 validatorFiles.forEach((file) => {
