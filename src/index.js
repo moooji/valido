@@ -38,7 +38,7 @@ Object.getOwnPropertyNames(validators).forEach((validatorName) => {
  * Validates a list of values
  *
  * @param {Array<*>} values - Values
- * @param {object} validator - Validator
+ * @param {function} validator - Validator
  * @param {object} options - Options
  * @returns {Boolean}
  */
@@ -55,7 +55,7 @@ function validateEvery(values, validator, options) {
  * An optional value will always validate to true if null/undefined
  *
  * @param {*} value - Value
- * @param {object} validator - Validator
+ * @param {function} validator - Validator
  * @param {object} options - Options
  * @returns {Boolean}
  */
