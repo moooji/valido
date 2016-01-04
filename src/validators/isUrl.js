@@ -15,12 +15,6 @@ const re = new RegExp(
   '(?:\\S+(?::\\S*)?@)?' +
   '(?:' +
 
-    // IP address exclusion
-    // private & local networks
-  '(?!(?:10|127)(?:\\.\\d{1,3}){3})' +
-  '(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})' +
-  '(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})' +
-
     // IP address dotted notation octets
     // excludes loopback network 0.0.0.0
     // excludes reserved space >= 224.0.0.0
@@ -53,7 +47,7 @@ const re = new RegExp(
 );
 
 /**
- * Checks if string is a valid web url (no local or private networks)
+ * Checks if string is a valid url
  * @param {String} value - Value
  * @param {object} [options] - Additional options
  * @returns {Boolean}
@@ -64,22 +58,22 @@ function validate(value, options) {
     return false;
   }
 
-  let isWebUrl = value.match(re) !== null;
+  let isUrl = value.match(re) !== null;
 
   if (!options) {
-    return isWebUrl;
+    return isUrl;
   }
 
   // Optional checks
   if (options.endsWith && !value.endsWith(options.endsWith)) {
-    isWebUrl = false;
+    isUrl = false;
   }
 
   if (options.startsWith && !value.startsWith(options.startsWith)) {
-    isWebUrl = false;
+    isUrl = false;
   }
 
-  return isWebUrl;
+  return isUrl;
 }
 
 module.exports = validate;

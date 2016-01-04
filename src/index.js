@@ -1,5 +1,6 @@
 'use strict';
 
+const isUrl = require('./validators/isUrl');
 const isWebUrl = require('./validators/isWebUrl');
 const isHexColor = require('./validators/isHexColor');
 const isString = require('./validators/isString');
@@ -12,6 +13,7 @@ const isFinite = require('./validators/isFinite');
 const isNatural = require('./validators/isNatural');
 
 const validators = {
+  isUrl,
   isWebUrl,
   isHexColor,
   isString,

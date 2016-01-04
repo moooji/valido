@@ -1,5 +1,6 @@
 'use strict';
 
+var isUrl = require('./validators/isUrl');
 var isWebUrl = require('./validators/isWebUrl');
 var isHexColor = require('./validators/isHexColor');
 var isString = require('./validators/isString');
@@ -12,6 +13,7 @@ var isFinite = require('./validators/isFinite');
 var isNatural = require('./validators/isNatural');
 
 var validators = {
+  isUrl: isUrl,
   isWebUrl: isWebUrl,
   isHexColor: isHexColor,
   isString: isString,
@@ -42,7 +44,7 @@ Object.getOwnPropertyNames(validators).forEach(function (validatorName) {
  * Validates a list of values
  *
  * @param {Array<*>} values - Values
- * @param {object} validator - Validator
+ * @param {function} validator - Validator
  * @param {object} options - Options
  * @returns {Boolean}
  */
@@ -61,7 +63,7 @@ function validateEvery(values, validator, options) {
  * An optional value will always validate to true if null/undefined
  *
  * @param {*} value - Value
- * @param {object} validator - Validator
+ * @param {function} validator - Validator
  * @param {object} options - Options
  * @returns {Boolean}
  */

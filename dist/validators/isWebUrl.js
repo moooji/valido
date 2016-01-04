@@ -43,7 +43,7 @@ var re = new RegExp('^' +
 '(?:[/?#]\\S*)?' + '$', 'i');
 
 /**
- * Checks if string is a valid url
+ * Checks if string is a valid web url (no local or private networks)
  * @param {String} value - Value
  * @param {object} [options] - Additional options
  * @returns {Boolean}

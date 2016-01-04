@@ -4,7 +4,7 @@
  * Checks if value is an array
  *
  * @param {String} value - Value
- * @param {object} options - Options
+ * @param {object} [options] - Options
  * @returns {Boolean}
  */
 function validate(value, options) {
