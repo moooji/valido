@@ -1,1 +1,1 @@
-require('mocha-jscs')(['./src']);
+require('mocha-jscs')(['./src', './test']);

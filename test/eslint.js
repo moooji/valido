@@ -1,1 +1,1 @@
-require('mocha-eslint')(['./src']);
+require('mocha-eslint')(['./src', './test']);

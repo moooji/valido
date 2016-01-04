@@ -1,6 +1,6 @@
 {
   "name": "valido",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Validation provider",
   "main": "dist/main.js",
   "scripts": {
