@@ -4,23 +4,25 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const chai = require('chai');
-const valido = require('../dist/main');
+const valido = require('../dist/index');
 const expect = chai.expect;
 
 const validatorDir = path.join(__dirname, '../dist/validators');
+const validatorTestsDir = path.join(__dirname, './validators');
 const validatorFiles = fs.readdirSync(validatorDir);
 
 validatorFiles.forEach((file) => {
+  const testsPath = path.join(validatorTestsDir, file);
   const filePath = path.join(validatorDir, file);
   const fileInfo = path.parse(filePath);
   const validatorName = fileInfo.name;
-  const validator = require(filePath);
+  const tests = require(testsPath);
 
-  const validValues = _.pluck(_.where(validator.tests, { result: true }), 'value');
-  const invalidValues = _.pluck(_.where(validator.tests, { result: false }), 'value');
+  const validValues = _.pluck(_.where(tests, { result: true }), 'value');
+  const invalidValues = _.pluck(_.where(tests, { result: false }), 'value');
 
   const notNullOrUndefinedTestValue = (test) => !valido.isNullOrUndefined(test.value);
-  const optionalValueTests = _.filter(validator.tests, notNullOrUndefinedTestValue);
+  const optionalValueTests = _.filter(tests, notNullOrUndefinedTestValue);
 
   describe('Validators - ' + validatorName, () => {
     it('should have tests (valid samples)', () => {
@@ -32,7 +34,7 @@ validatorFiles.forEach((file) => {
     });
 
     it('should validate a value', () => {
-      validator.tests.forEach((test) => {
+      tests.forEach((test) => {
         return expect(valido[validatorName](test.value, test.options)).to.equal(test.result);
       });
     });
@@ -46,7 +48,7 @@ validatorFiles.forEach((file) => {
     });
 
     it('should validate a list of values', () => {
-      validator.tests.forEach((test) => {
+      tests.forEach((test) => {
         const values = [test.value, test.value];
         return expect(valido.every[validatorName](values, test.options)).to.equal(test.result);
       });

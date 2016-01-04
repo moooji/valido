@@ -1,6 +1,6 @@
 'use strict';
 
-var isString = require('./isString').validate;
+var isString = require('./isString');
 var re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
 /**
@@ -9,7 +9,6 @@ var re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
  * @param {String} hexColor
  * @returns {Boolean}
  */
-
 function validate(hexColor) {
   if (!isString(hexColor)) {
     return false;
@@ -18,8 +17,4 @@ function validate(hexColor) {
   return hexColor.match(re) !== null;
 }
 
-var tests = [{ value: null, result: false }, { value: undefined, result: false }, {
-  value: function value() {}, result: false
-}, { value: '', result: false }, { value: 1, result: false }, { value: 'FF3333', result: false }, { value: '#FF33', result: false }, { value: '#FF33333', result: false }, { value: '#FF3333', result: true }, { value: '#FFF', result: true }];
-
-module.exports = { validate: validate, tests: tests };
+module.exports = validate;

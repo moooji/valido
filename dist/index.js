@@ -29,7 +29,7 @@ var api = { every: {}, optional: {} };
 // Build API
 Object.getOwnPropertyNames(validators).forEach(function (validatorName) {
   var validator = validators[validatorName];
-  api[validatorName] = validator.validate;
+  api[validatorName] = validator;
   api.every[validatorName] = function (values, options) {
     return validateEvery(values, validator, options);
   };
@@ -47,12 +47,12 @@ Object.getOwnPropertyNames(validators).forEach(function (validatorName) {
  * @returns {Boolean}
  */
 function validateEvery(values, validator, options) {
-  if (!isArray.validate(values)) {
+  if (!isArray(values)) {
     return false;
   }
 
   return values.every(function (value) {
-    return validator.validate(value, options);
+    return validator(value, options);
   });
 }
 
@@ -66,11 +66,11 @@ function validateEvery(values, validator, options) {
  * @returns {Boolean}
  */
 function validateOptional(value, validator, options) {
-  if (isNullOrUndefined.validate(value)) {
+  if (isNullOrUndefined(value)) {
     return true;
   }
 
-  return validator.validate(value, options);
+  return validator(value, options);
 }
 
 module.exports = api;

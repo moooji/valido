@@ -1,8 +1,8 @@
 {
   "name": "valido",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Validation provider",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel src -d dist && mocha",
     "build": "./node_modules/.bin/babel src -d dist"
