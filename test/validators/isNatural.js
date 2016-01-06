@@ -8,7 +8,7 @@ module.exports = [
   { value: '', result: false },
   { value: '1', result: false },
   { value: 0, result: true },
-  { value: 0, options: { notZero: true }, result: false },
+  { value: 0, options: { disallowZero: true }, result: false },
   { value: 1, result: true },
   { value: 1.1, result: false },
   { value: -1, result: false },
