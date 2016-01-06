@@ -7,12 +7,12 @@
  * @returns {Boolean}
  */
 function validate(value, options) {
-  const notZero = options && options.notZero;
-  return Number.isInteger(value) && isPositive(value, notZero);
+  const disallowZero = options && options.disallowZero;
+  return Number.isInteger(value) && isPositive(value, disallowZero);
 }
 
-function isPositive(value, notZero) {
-  if (notZero) {
+function isPositive(value, disallowZero) {
+  if (disallowZero) {
     return value > 0;
   }
 
