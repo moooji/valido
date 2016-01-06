@@ -6,8 +6,17 @@
  * @param {Number} value - Value
  * @returns {Boolean}
  */
-function validate(value) {
-  return Number.isInteger(value) && value >= 0;
+function validate(value, options) {
+  const notZero = options && options.notZero;
+  return Number.isInteger(value) && isPositive(value, notZero);
+}
+
+function isPositive(value, notZero) {
+  if (notZero) {
+    return value > 0;
+  }
+
+  return value >= 0;
 }
 
 module.exports = validate;
