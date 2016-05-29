@@ -11,20 +11,20 @@ const validatorDir = path.join(__dirname, '../dist/validators');
 const validatorTestsDir = path.join(__dirname, './validators');
 const validatorFiles = fs.readdirSync(validatorDir);
 
-validatorFiles.forEach((file) => {
+validatorFiles.forEach(file => {
   const testsPath = path.join(validatorTestsDir, file);
   const filePath = path.join(validatorDir, file);
   const fileInfo = path.parse(filePath);
   const validatorName = fileInfo.name;
-  const tests = require(testsPath);
+  const tests = require(testsPath); // eslint-disable-line global-require
 
-  const validValues = _.pluck(_.where(tests, { result: true }), 'value');
-  const invalidValues = _.pluck(_.where(tests, { result: false }), 'value');
+  const validValues = _.map(_.filter(tests, { result: true }), 'value');
+  const invalidValues = _.map(_.filter(tests, { result: false }), 'value');
 
   const notNullOrUndefinedTestValue = (test) => !valido.isNullOrUndefined(test.value);
   const optionalValueTests = _.filter(tests, notNullOrUndefinedTestValue);
 
-  describe('Validators - ' + validatorName, () => {
+  describe(`Validators - ${validatorName}`, () => {
     it('should have tests (valid samples)', () => {
       return expect(validValues).to.not.be.empty;
     });

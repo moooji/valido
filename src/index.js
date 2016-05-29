@@ -11,6 +11,7 @@ const isNullOrUndefined = require('./validators/isNullOrUndefined');
 const isInteger = require('./validators/isInteger');
 const isFinite = require('./validators/isFinite');
 const isNatural = require('./validators/isNatural');
+const isBuffer = require('./validators/isBuffer');
 
 const validators = {
   isUrl,
@@ -23,7 +24,8 @@ const validators = {
   isNullOrUndefined,
   isInteger,
   isFinite,
-  isNatural
+  isNatural,
+  isBuffer,
 };
 
 const api = { every: {}, optional: {} };

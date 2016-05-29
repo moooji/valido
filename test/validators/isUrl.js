@@ -1,10 +1,7 @@
 module.exports = [
   { value: null, result: false },
   { value: undefined, result: false },
-  {
-    value: () => {
-    }, result: false
-  },
+  { value: () => {}, result: false },
   { value: '', result: false },
   { value: 1, result: false },
   { value: 'abc', result: false },
@@ -27,5 +24,5 @@ module.exports = [
   { value: 'https://www.google.com/', options: { startsWith: 'https://www.google' }, result: true },
   { value: 'https://www.google.com/', options: { startsWith: 'https://www.google', endsWith: '/' }, result: true },
   { value: 'https://www.google.com', options: { startsWith: 'https://www.google', endsWith: '/' }, result: false },
-  { value: 'https://www.google.com/', options: { startsWith: 'https://www.ebay', endsWith: '/' }, result: false }
+  { value: 'https://www.google.com/', options: { startsWith: 'https://www.ebay', endsWith: '/' }, result: false },
 ];
