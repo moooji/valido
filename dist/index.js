@@ -12,6 +12,7 @@ var isInteger = require('./validators/isInteger');
 var isFinite = require('./validators/isFinite');
 var isNatural = require('./validators/isNatural');
 var isBuffer = require('./validators/isBuffer');
+var isBoolean = require('./validators/isBoolean');
 
 var validators = {
   isUrl: isUrl,
@@ -25,7 +26,8 @@ var validators = {
   isInteger: isInteger,
   isFinite: isFinite,
   isNatural: isNatural,
-  isBuffer: isBuffer
+  isBuffer: isBuffer,
+  isBoolean: isBoolean
 };
 
 var api = { every: {}, optional: {} };
