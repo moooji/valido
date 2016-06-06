@@ -13,6 +13,8 @@ const isFinite = require('./validators/isFinite');
 const isNatural = require('./validators/isNatural');
 const isBuffer = require('./validators/isBuffer');
 const isBoolean = require('./validators/isBoolean');
+const isFunction = require('./validators/isFunction');
+const isPlainObject = require('./validators/isPlainObject');
 
 const validators = {
   isUrl,
@@ -28,6 +30,8 @@ const validators = {
   isNatural,
   isBuffer,
   isBoolean,
+  isFunction,
+  isPlainObject,
 };
 
 const api = { every: {}, optional: {} };
