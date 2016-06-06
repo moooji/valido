@@ -1,10 +1,9 @@
 'use strict';
 
 /**
- * Checks if value is a plain object
- * Based on: http://stackoverflow.com/questions/5876332/how-can-i-differentiate-between-an-object-literal-other-javascript-objects
+ * Checks if value is a date object
  *
- * @param {Object} value - Value
+ * @param {Date} value - Value
  * @returns {Boolean}
  */
 
@@ -13,8 +12,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function validate(value) {
   // Basic check for Type object that's not null
   if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value !== null) {
-    var proto = Object.getPrototypeOf(value);
-    return proto === Object.prototype || proto === null;
+    return Object.getPrototypeOf(value) === Date.prototype;
   }
 
   return false;

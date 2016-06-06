@@ -15,6 +15,7 @@ const isBuffer = require('./validators/isBuffer');
 const isBoolean = require('./validators/isBoolean');
 const isFunction = require('./validators/isFunction');
 const isPlainObject = require('./validators/isPlainObject');
+const isDate = require('./validators/isDate');
 
 const validators = {
   isUrl,
@@ -32,6 +33,7 @@ const validators = {
   isBoolean,
   isFunction,
   isPlainObject,
+  isDate,
 };
 
 const api = { every: {}, optional: {} };
