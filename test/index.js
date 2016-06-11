@@ -50,12 +50,12 @@ validatorFiles.forEach(file => {
     it('should validate a list of values', () => {
       tests.forEach((test) => {
         const values = [test.value, test.value];
-        return expect(valido.every[validatorName](values, test.options)).to.equal(test.result);
+        return expect(valido.all[validatorName](values, test.options)).to.equal(test.result);
       });
     });
 
     it('should validate an empty list to true', () => {
-      return expect(valido.every[validatorName]([])).to.equal(true);
+      return expect(valido.all[validatorName]([])).to.equal(true);
     });
   });
 });

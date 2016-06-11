@@ -38,14 +38,14 @@ var validators = {
   function: isFunction
 };
 
-var api = { every: {}, optional: {} };
+var api = { all: {}, optional: {} };
 
 // Build API
 Object.getOwnPropertyNames(validators).forEach(function (validatorName) {
   var validator = validators[validatorName];
   api[validatorName] = validator;
-  api.every[validatorName] = function (values, options) {
-    return validateEvery(values, validator, options);
+  api.all[validatorName] = function (values, options) {
+    return validateAll(values, validator, options);
   };
   api.optional[validatorName] = function (value, options) {
     return validateOptional(value, validator, options);
@@ -60,7 +60,7 @@ Object.getOwnPropertyNames(validators).forEach(function (validatorName) {
  * @param {object} options - Options
  * @returns {Boolean}
  */
-function validateEvery(values, validator, options) {
+function validateAll(values, validator, options) {
   if (!isArray(values)) {
     return false;
   }
