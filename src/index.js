@@ -8,7 +8,7 @@ const isString = require('./validators/string');
 const isArray = require('./validators/array');
 const isNull = require('./validators/null');
 const isUndefined = require('./validators/undefined');
-const isNullOrUndefined = require('./validators/nullOrUndefined');
+const isExisty = require('./validators/existy');
 const isInteger = require('./validators/integer');
 const isFinite = require('./validators/finite');
 const isNatural = require('./validators/natural');
@@ -25,7 +25,7 @@ const validators = {
   hexColor: isHexColor,
   string: isString,
   array: isArray,
-  nullOrUndefined: isNullOrUndefined,
+  existy: isExisty,
   integer: isInteger,
   finite: isFinite,
   natural: isNatural,
@@ -74,7 +74,7 @@ function validateAll(values, validator, options) {
  * @returns {Boolean}
  */
 function validateOptional(value, validator, options) {
-  if (isNullOrUndefined(value)) {
+  if (isExisty(value)) {
     return true;
   }
 

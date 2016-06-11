@@ -21,8 +21,8 @@ validatorFiles.forEach(file => {
   const validValues = _.map(_.filter(tests, { result: true }), 'value');
   const invalidValues = _.map(_.filter(tests, { result: false }), 'value');
 
-  const notNullOrUndefinedTestValue = (test) => !valido.nullOrUndefined(test.value);
-  const optionalValueTests = _.filter(tests, notNullOrUndefinedTestValue);
+  const hasTestValue = (test) => !valido.existy(test.value);
+  const optionalValueTests = _.filter(tests, hasTestValue);
 
   describe(`Validators - ${validatorName}`, () => {
     it('should have tests (valid samples)', () => {
