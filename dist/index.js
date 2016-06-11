@@ -1,39 +1,39 @@
 'use strict';
 
-var isUrl = require('./validators/isUrl');
-var isWebUrl = require('./validators/isWebUrl');
-var isHexColor = require('./validators/isHexColor');
-var isString = require('./validators/isString');
-var isArray = require('./validators/isArray');
-var isNull = require('./validators/isNull');
-var isUndefined = require('./validators/isUndefined');
-var isNullOrUndefined = require('./validators/isNullOrUndefined');
-var isInteger = require('./validators/isInteger');
-var isFinite = require('./validators/isFinite');
-var isNatural = require('./validators/isNatural');
-var isBuffer = require('./validators/isBuffer');
-var isBoolean = require('./validators/isBoolean');
-var isFunction = require('./validators/isFunction');
-var isPlainObject = require('./validators/isPlainObject');
-var isDate = require('./validators/isDate');
+var isUrl = require('./validators/url');
+var isWebUrl = require('./validators/webUrl');
+var isHexColor = require('./validators/hexColor');
+var isString = require('./validators/string');
+var isArray = require('./validators/array');
+var isNull = require('./validators/null');
+var isUndefined = require('./validators/undefined');
+var isNullOrUndefined = require('./validators/nullOrUndefined');
+var isInteger = require('./validators/integer');
+var isFinite = require('./validators/finite');
+var isNatural = require('./validators/natural');
+var isBuffer = require('./validators/buffer');
+var isBoolean = require('./validators/boolean');
+var isFunction = require('./validators/function');
+var isPlainObject = require('./validators/plainObject');
+var isDate = require('./validators/date');
 
 var validators = {
-  isUrl: isUrl,
-  isWebUrl: isWebUrl,
-  isHexColor: isHexColor,
-  isString: isString,
-  isArray: isArray,
-  isNull: isNull,
-  isUndefined: isUndefined,
-  isNullOrUndefined: isNullOrUndefined,
-  isInteger: isInteger,
-  isFinite: isFinite,
-  isNatural: isNatural,
-  isBuffer: isBuffer,
-  isBoolean: isBoolean,
-  isFunction: isFunction,
-  isPlainObject: isPlainObject,
-  isDate: isDate
+  url: isUrl,
+  webUrl: isWebUrl,
+  hexColor: isHexColor,
+  string: isString,
+  array: isArray,
+  nullOrUndefined: isNullOrUndefined,
+  integer: isInteger,
+  finite: isFinite,
+  natural: isNatural,
+  buffer: isBuffer,
+  boolean: isBoolean,
+  plainObject: isPlainObject,
+  date: isDate,
+  null: isNull,
+  undefined: isUndefined,
+  function: isFunction
 };
 
 var api = { every: {}, optional: {} };

@@ -1,6 +1,6 @@
 'use strict';
 
-var isString = require('./isString');
+var isString = require('./string');
 var re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
 /**

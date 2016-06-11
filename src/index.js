@@ -1,39 +1,39 @@
 'use strict';
 
-const isUrl = require('./validators/isUrl');
-const isWebUrl = require('./validators/isWebUrl');
-const isHexColor = require('./validators/isHexColor');
-const isString = require('./validators/isString');
-const isArray = require('./validators/isArray');
-const isNull = require('./validators/isNull');
-const isUndefined = require('./validators/isUndefined');
-const isNullOrUndefined = require('./validators/isNullOrUndefined');
-const isInteger = require('./validators/isInteger');
-const isFinite = require('./validators/isFinite');
-const isNatural = require('./validators/isNatural');
-const isBuffer = require('./validators/isBuffer');
-const isBoolean = require('./validators/isBoolean');
-const isFunction = require('./validators/isFunction');
-const isPlainObject = require('./validators/isPlainObject');
-const isDate = require('./validators/isDate');
+const isUrl = require('./validators/url');
+const isWebUrl = require('./validators/webUrl');
+const isHexColor = require('./validators/hexColor');
+const isString = require('./validators/string');
+const isArray = require('./validators/array');
+const isNull = require('./validators/null');
+const isUndefined = require('./validators/undefined');
+const isNullOrUndefined = require('./validators/nullOrUndefined');
+const isInteger = require('./validators/integer');
+const isFinite = require('./validators/finite');
+const isNatural = require('./validators/natural');
+const isBuffer = require('./validators/buffer');
+const isBoolean = require('./validators/boolean');
+const isFunction = require('./validators/function');
+const isPlainObject = require('./validators/plainObject');
+const isDate = require('./validators/date');
 
 const validators = {
-  isUrl,
-  isWebUrl,
-  isHexColor,
-  isString,
-  isArray,
-  isNull,
-  isUndefined,
-  isNullOrUndefined,
-  isInteger,
-  isFinite,
-  isNatural,
-  isBuffer,
-  isBoolean,
-  isFunction,
-  isPlainObject,
-  isDate,
+  url: isUrl,
+  webUrl: isWebUrl,
+  hexColor: isHexColor,
+  string: isString,
+  array: isArray,
+  nullOrUndefined: isNullOrUndefined,
+  integer: isInteger,
+  finite: isFinite,
+  natural: isNatural,
+  buffer: isBuffer,
+  boolean: isBoolean,
+  plainObject: isPlainObject,
+  date: isDate,
+  null: isNull,
+  undefined: isUndefined,
+  function: isFunction,
 };
 
 const api = { every: {}, optional: {} };

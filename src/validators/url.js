@@ -1,6 +1,6 @@
 'use strict';
 
-const isString = require('./isString');
+const isString = require('./string');
 
 // Based on
 // https://gist.github.com/o5/6cb4b0178c5a509cad03
