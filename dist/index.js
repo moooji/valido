@@ -1,6 +1,7 @@
 'use strict';
 
 var isUrl = require('./validators/url');
+var isUri = require('./validators/uri');
 var isWebUrl = require('./validators/webUrl');
 var isHexColor = require('./validators/hexColor');
 var isString = require('./validators/string');
@@ -18,6 +19,7 @@ var isPlainObject = require('./validators/plainObject');
 var isDate = require('./validators/date');
 
 var validators = {
+  uri: isUri,
   url: isUrl,
   webUrl: isWebUrl,
   hexColor: isHexColor,

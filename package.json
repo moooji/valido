@@ -1,6 +1,6 @@
 {
   "name": "valido",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Validation provider",
   "main": "dist/index.js",
   "scripts": {
@@ -36,5 +36,8 @@
     "lodash": "^4.13.1",
     "mocha": "^2.5.3",
     "mocha-eslint": "^2.1.1"
+  },
+  "dependencies": {
+    "is_js": "^0.8.0"
   }
 }
