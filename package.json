@@ -1,7 +1,7 @@
 {
   "name": "valido",
   "version": "2.0.5",
-  "description": "Validation provider",
+  "description": "Check and validation library",
   "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel src -d dist && mocha",
@@ -15,7 +15,9 @@
     "url": "https://github.com/moooji/valido.git"
   },
   "keywords": [
-    "validation"
+    "validation",
+    "check",
+    "validate"
   ],
   "author": "Steffen Strätz",
   "license": "MIT",

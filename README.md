@@ -166,7 +166,7 @@ is.integer(-1);
 is.integer(2e64);
 --> true
 
-is.hexColor(1.1);
+is.integer(1.1);
 --> false
 ````
 
