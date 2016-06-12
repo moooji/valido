@@ -1,9 +1,11 @@
 # Valido
-General purpose check and validation library. 
+General purpose check and validation library.
 
 The focus is on providing selected, well tested checks and a convenient API. The library is inspired by other projects, like is_js and joi in terms of the API, but completely written from ground up to be easily extendable and testable.
 
 Contributions are welcome.
+
+[![Teamcity](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon)](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon)
 
 ## Installing
 `npm install valido`
