@@ -5,7 +5,7 @@ The focus is on providing selected, well tested checks and a convenient API. The
 
 Contributions are welcome.
 
-[![Teamcity](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon)](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon)
+[![Teamcity](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon?guest=1)](https://teamcity.moooji.com/app/rest/builds/buildType:(id:Valido_Main)/statusIcon?guest=1)
 
 ## Installing
 `npm install valido`
