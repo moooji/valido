@@ -1,9 +1,9 @@
 module.exports = [
-  { value: null, result: true },
-  { value: undefined, result: true },
-  { value: () => {}, result: false },
-  { value: 1, result: false },
-  { value: [], result: false },
-  { value: '', result: false },
-  { value: 'abc', result: false },
+  { value: null, result: false },
+  { value: undefined, result: false },
+  { value: () => {}, result: true },
+  { value: 1, result: true },
+  { value: [], result: true },
+  { value: '', result: true },
+  { value: 'abc', result: true },
 ];

@@ -7,7 +7,7 @@
  * @returns {Boolean}
  */
 function validate(value) {
-  return value === null || value === undefined;
+  return value !== null && value !== undefined;
 }
 
 module.exports = validate;

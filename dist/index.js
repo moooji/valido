@@ -80,7 +80,7 @@ function validateAll(values, validator, options) {
  * @returns {Boolean}
  */
 function validateOptional(value, validator, options) {
-  if (isExisty(value)) {
+  if (!isExisty(value)) {
     return true;
   }
 

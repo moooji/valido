@@ -61,7 +61,7 @@ function validateAll(values, validator, options) {
     return false;
   }
 
-  return values.every((value) => validator(value, options));
+  return values.every(value => validator(value, options));
 }
 
 /**
@@ -74,7 +74,7 @@ function validateAll(values, validator, options) {
  * @returns {Boolean}
  */
 function validateOptional(value, validator, options) {
-  if (isExisty(value)) {
+  if (!isExisty(value)) {
     return true;
   }
 
