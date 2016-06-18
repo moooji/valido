@@ -7,15 +7,15 @@ const chai = require('chai');
 const valido = require('../dist/index');
 const expect = chai.expect;
 
-const validatorDir = path.join(__dirname, '../dist/validators');
-const validatorTestsDir = path.join(__dirname, './validators');
-const validatorFiles = fs.readdirSync(validatorDir);
+const predicateDir = path.join(__dirname, '../dist/predicates');
+const predicateTestsDir = path.join(__dirname, './predicates');
+const predicateFiles = fs.readdirSync(predicateDir);
 
-validatorFiles.forEach(file => {
-  const testsPath = path.join(validatorTestsDir, file);
-  const filePath = path.join(validatorDir, file);
+predicateFiles.forEach(file => {
+  const testsPath = path.join(predicateTestsDir, file);
+  const filePath = path.join(predicateDir, file);
   const fileInfo = path.parse(filePath);
-  const validatorName = fileInfo.name;
+  const predicateName = fileInfo.name;
   const tests = require(testsPath); // eslint-disable-line global-require
 
   const validValues = _.map(_.filter(tests, { result: true }), 'value');
@@ -24,7 +24,7 @@ validatorFiles.forEach(file => {
   const hasTestValue = (test) => !valido.existy(test.value);
   const optionalValueTests = _.filter(tests, hasTestValue);
 
-  describe(`Validators - ${validatorName}`, () => {
+  describe(`predicates - ${predicateName}`, () => {
     it('should have tests (valid samples)', () => {
       return expect(validValues).to.not.be.empty;
     });
@@ -34,28 +34,31 @@ validatorFiles.forEach(file => {
     });
 
     it('should validate a value', () => {
-      tests.forEach((test) => {
-        return expect(valido[validatorName](test.value, test.options)).to.equal(test.result);
+      tests.forEach(test => {
+        return expect(valido[predicateName](test.value, test.options)).to.equal(test.result);
       });
     });
 
     it('should validate an optional value', () => {
-      optionalValueTests.forEach((test) => {
-        expect(valido.optional[validatorName](null, test.options)).to.equal(true);
-        expect(valido.optional[validatorName](undefined, test.options)).to.equal(true);
-        // expect(valido.optional[validatorName](test.value, test.options)).to.equal(test.result);
+      optionalValueTests.forEach(test => {
+        expect(valido.optional[predicateName](null, test.options)).to.equal(true);
+        expect(valido.optional[predicateName](undefined, test.options)).to.equal(true);
+
+        if (test.value !== null && test.value !== undefined) {
+          expect(valido.optional[predicateName](test.value, test.options)).to.equal(test.result);
+        }
       });
     });
 
     it('should validate a list of values', () => {
-      tests.forEach((test) => {
+      tests.forEach(test => {
         const values = [test.value, test.value];
-        return expect(valido.all[validatorName](values, test.options)).to.equal(test.result);
+        return expect(valido.all[predicateName](values, test.options)).to.equal(test.result);
       });
     });
 
     it('should validate an empty list to true', () => {
-      return expect(valido.all[validatorName]([])).to.equal(true);
+      return expect(valido.all[predicateName]([])).to.equal(true);
     });
   });
 });

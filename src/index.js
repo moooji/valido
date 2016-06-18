@@ -1,24 +1,24 @@
 'use strict';
 
-const isUrl = require('./validators/url');
-const isUri = require('./validators/uri');
-const isWebUrl = require('./validators/webUrl');
-const isHexColor = require('./validators/hexColor');
-const isString = require('./validators/string');
-const isArray = require('./validators/array');
-const isNull = require('./validators/null');
-const isUndefined = require('./validators/undefined');
-const isExisty = require('./validators/existy');
-const isInteger = require('./validators/integer');
-const isFinite = require('./validators/finite');
-const isNatural = require('./validators/natural');
-const isBuffer = require('./validators/buffer');
-const isBoolean = require('./validators/boolean');
-const isFunction = require('./validators/function');
-const isPlainObject = require('./validators/plainObject');
-const isDate = require('./validators/date');
+const isUrl = require('./predicates/url');
+const isUri = require('./predicates/uri');
+const isWebUrl = require('./predicates/webUrl');
+const isHexColor = require('./predicates/hexColor');
+const isString = require('./predicates/string');
+const isArray = require('./predicates/array');
+const isNull = require('./predicates/null');
+const isUndefined = require('./predicates/undefined');
+const isExisty = require('./predicates/existy');
+const isInteger = require('./predicates/integer');
+const isFinite = require('./predicates/finite');
+const isNatural = require('./predicates/natural');
+const isBuffer = require('./predicates/buffer');
+const isBoolean = require('./predicates/boolean');
+const isFunction = require('./predicates/function');
+const isPlainObject = require('./predicates/plainObject');
+const isDate = require('./predicates/date');
 
-const validators = {
+const predicates = {
   uri: isUri,
   url: isUrl,
   webUrl: isWebUrl,
@@ -41,27 +41,27 @@ const validators = {
 const api = { all: {}, optional: {} };
 
 // Build API
-Object.getOwnPropertyNames(validators).forEach((validatorName) => {
-  const validator = validators[validatorName];
-  api[validatorName] = validator;
-  api.all[validatorName] = (values, options) => validateAll(values, validator, options);
-  api.optional[validatorName] = (value, options) => validateOptional(value, validator, options);
+Object.getOwnPropertyNames(predicates).forEach((predicateName) => {
+  const predicate = predicates[predicateName];
+  api[predicateName] = predicate;
+  api.all[predicateName] = (values, options) => validateAll(values, predicate, options);
+  api.optional[predicateName] = (value, options) => validateOptional(value, predicate, options);
 });
 
 /**
  * Validates a list of values
  *
  * @param {Array<*>} values - Values
- * @param {function} validator - Validator
+ * @param {function} predicate - predicate
  * @param {object} options - Options
  * @returns {Boolean}
  */
-function validateAll(values, validator, options) {
+function validateAll(values, predicate, options) {
   if (!isArray(values)) {
     return false;
   }
 
-  return values.every(value => validator(value, options));
+  return values.every(value => predicate(value, options));
 }
 
 /**
@@ -69,16 +69,16 @@ function validateAll(values, validator, options) {
  * An optional value will always validate to true if null/undefined
  *
  * @param {*} value - Value
- * @param {function} validator - Validator
+ * @param {function} predicate - predicate
  * @param {object} options - Options
  * @returns {Boolean}
  */
-function validateOptional(value, validator, options) {
+function validateOptional(value, predicate, options) {
   if (!isExisty(value)) {
     return true;
   }
 
-  return validator(value, options);
+  return predicate(value, options);
 }
 
 module.exports = api;
