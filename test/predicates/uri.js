@@ -8,6 +8,7 @@ module.exports = [
   { value: {}, result: false },
   { value: [], result: false },
   { value: 'google.com', result: false },
+  { value: 'http://localhost:3200/website.html', result: true },
   { value: 'https://127.0.0.1:3128', result: true },
   { value: 'http://www.google.com', result: true },
   { value: 'https://www.google.com', result: true },
