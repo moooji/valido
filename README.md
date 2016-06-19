@@ -32,7 +32,7 @@ is.optional.uri(123);
 
 ## API
 ### all
-Will return true if all elements in the list validate to true.
+Will return true if all elements in the list validate to true. Can be combined with all predicates.
 
 ````
 is.all.number([007, 123]);
@@ -43,7 +43,7 @@ is.all.number(['abc', 123]);
 ````
 
 ### optional
-Will return true if the provided value is either null/undefined or validates to true.
+Will return true if the provided value is either null/undefined or validates to true. Can be combined with all predicates.
 
 ````
 is.optional.number(null);
