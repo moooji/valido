@@ -221,6 +221,31 @@ is.plainObject(function(){});
 --> false
 ````
 
+### stream(value:any)
+Checks if value is a stream.
+
+````
+const Stream = require('stream');
+
+is.stream(new Stream.Readable());
+--> true
+
+is.stream(new Stream.Writable());
+--> true
+
+is.stream(new Stream.Transform());
+--> true
+
+is.stream(new Stream.PassThrough());
+--> true
+
+is.stream(new Stream.Duplex());
+--> true
+
+is.stream(123);
+--> false
+````
+
 ### string(value:any, options:object)
 Checks if value is a string.
 

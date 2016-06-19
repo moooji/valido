@@ -16,6 +16,7 @@ var isBuffer = require('./predicates/buffer');
 var isBoolean = require('./predicates/boolean');
 var isFunction = require('./predicates/function');
 var isPlainObject = require('./predicates/plainObject');
+var isStream = require('./predicates/stream');
 var isDate = require('./predicates/date');
 
 var predicates = {
@@ -35,7 +36,8 @@ var predicates = {
   date: isDate,
   null: isNull,
   undefined: isUndefined,
-  function: isFunction
+  function: isFunction,
+  stream: isStream
 };
 
 var api = { all: {}, optional: {} };

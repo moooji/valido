@@ -1,6 +1,6 @@
 {
   "name": "valido",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Check and validation library",
   "main": "dist/index.js",
   "scripts": {
