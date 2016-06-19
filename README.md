@@ -30,6 +30,7 @@ is.optional.uri(123);
 --> false
 ````
 
+## API
 ### all
 Will return true if all elements in the list validate to true.
 
