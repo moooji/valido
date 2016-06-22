@@ -1,6 +1,6 @@
 {
   "name": "valido",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "Check and validation library",
   "main": "dist/index.js",
   "scripts": {
@@ -31,9 +31,9 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "chai": "^3.5.0",
-    "eslint": "^2.13.0",
+    "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
     "lodash": "^4.13.1",

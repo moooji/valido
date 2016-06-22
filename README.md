@@ -98,6 +98,17 @@ is.date('2016-01-01');
 --> false
 ````
 
+### email(value:any)
+Checks if value is a valid email according to [link](https://www.w3.org/TR/html5/forms.html#valid-e-mail-address "W3C recommendation").
+
+````
+is.email('bob@test.com');
+--> true
+
+is.email('test.com');
+--> false
+````
+
 ### existy(value:any)
 Checks if value is not null and not undefined.
 

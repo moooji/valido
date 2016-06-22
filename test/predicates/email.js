@@ -1,0 +1,18 @@
+module.exports = [
+  { value: null, result: false },
+  { value: undefined, result: false },
+  { value: () => {}, result: false },
+  { value: '', result: false },
+  { value: 1, result: false },
+  { value: 'abc', result: false },
+  { value: {}, result: false },
+  { value: [], result: false },
+  { value: 'google.com', result: false },
+  { value: 'http://localhost:3200/website.html', result: false },
+  { value: 'bob@test.com', result: true },
+  { value: 'bob.parker@www.test.com', result: true },
+  { value: 'bob@test.com', options: { startsWith: 'bob' }, result: true },
+  { value: 'bob@test.com', options: { startsWith: 'peter' }, result: false },
+  { value: 'bob@test.com', options: { endsWith: 'test.com' }, result: true },
+  { value: 'bob@test.com', options: { endsWith: 'bob.com' }, result: false },
+];

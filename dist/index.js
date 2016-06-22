@@ -18,6 +18,7 @@ var isFunction = require('./predicates/function');
 var isPlainObject = require('./predicates/plainObject');
 var isStream = require('./predicates/stream');
 var isDate = require('./predicates/date');
+var isEmail = require('./predicates/email');
 
 var predicates = {
   uri: isUri,
@@ -37,7 +38,8 @@ var predicates = {
   null: isNull,
   undefined: isUndefined,
   function: isFunction,
-  stream: isStream
+  stream: isStream,
+  email: isEmail
 };
 
 var api = { all: {}, optional: {} };
