@@ -203,7 +203,7 @@ is.natural(-1);
 ````
 
 ### null(value:any)
-Checks if value is null.
+Checks if value is `null`.
 
 ````
 is.null(null);
@@ -213,6 +213,29 @@ is.null(0);
 --> false
 
 is.null(undefined);
+--> false
+````
+
+### number(value:any)
+Checks if value is of type `number`.
+
+````
+is.number(1);
+--> true
+
+is.number(Math.PI);
+--> true
+
+is.number(NaN);
+--> true
+
+is.number(Infinity);
+--> true
+
+is.number(2e64);
+--> true
+
+is.number('1');
 --> false
 ````
 

@@ -12,6 +12,7 @@ const isExisty = require('./predicates/existy');
 const isInteger = require('./predicates/integer');
 const isFinite = require('./predicates/finite');
 const isNatural = require('./predicates/natural');
+const isNumber = require('./predicates/number');
 const isBuffer = require('./predicates/buffer');
 const isBoolean = require('./predicates/boolean');
 const isFunction = require('./predicates/function');
@@ -31,6 +32,7 @@ const predicates = {
   integer: isInteger,
   finite: isFinite,
   natural: isNatural,
+  number: isNumber,
   buffer: isBuffer,
   boolean: isBoolean,
   plainObject: isPlainObject,
