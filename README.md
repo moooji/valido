@@ -1,4 +1,4 @@
-# valido *2.0.14*
+# valido *2.0.15*
 
 > Check and validation library
 
