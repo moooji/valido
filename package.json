@@ -4,12 +4,12 @@
   "description": "Check and validation library",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm run transpile && mocha",
     "deploy-patch": "npm version patch && npm publish && git add . && git commit -m",
     "deploy-minor": "npm version minor && npm publish && git add . && git commit -m",
     "deploy-major": "npm version major && npm publish && git add . && git commit -m",
-    "transpile": "babel src --retain-lines --out-dir dist",
-    "prepublish": "npm test && npm run transpile && npm run generate-docs",
+    "transpile": "babel src --retain-lines --out-dir dist --copy-files",
+    "prepublish": "npm test && npm run generate-docs",
     "generate-docs": "doxdox './src/*.js' --layout markdown --output README.md"
   },
   "engines": {
