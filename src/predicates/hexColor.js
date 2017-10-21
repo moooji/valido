@@ -1,6 +1,7 @@
 'use strict';
 
 const isString = require('./string');
+
 const re = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
 /**

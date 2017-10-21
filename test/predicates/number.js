@@ -13,5 +13,5 @@ module.exports = [
   { value: Infinity, result: true },
   { value: -Infinity, result: true },
   { value: 2e64, result: true },
-  { value: Math.pow(2, 2) - 1, result: true },
+  { value: (2 ** 2) - 1, result: true },
 ];

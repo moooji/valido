@@ -4,11 +4,16 @@
   "description": "Check and validation library",
   "main": "dist/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/babel src -d dist && mocha",
-    "build": "./node_modules/.bin/babel src -d dist"
+    "test": "mocha",
+    "deploy-patch": "npm version patch && npm publish && git add . && git commit -m",
+    "deploy-minor": "npm version minor && npm publish && git add . && git commit -m",
+    "deploy-major": "npm version major && npm publish && git add . && git commit -m",
+    "transpile": "babel src --retain-lines --out-dir dist",
+    "prepublish": "npm test && npm run transpile && npm run generate-docs",
+    "generate-docs": "doxdox './src/*.js' --layout markdown --output README.md"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.5.0"
   },
   "repository": {
     "type": "git",
@@ -26,18 +31,15 @@
     "url": "https://github.com/moooji/valido/issues"
   },
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-2": "^6.11.0",
-    "chai": "^3.5.0",
-    "eslint": "^3.0.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.10.2",
-    "eslint-plugin-jsx-a11y": "^1.5.5",
-    "eslint-plugin-react": "^5.2.2",
-    "lodash": "^4.13.1",
-    "mocha": "^2.5.3",
-    "mocha-eslint": "^2.1.1"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
+    "doxdox": "^2.0.3",
+    "eslint": "^4.9.0",
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
+    "mocha-eslint": "^4.1.0"
   }
 }

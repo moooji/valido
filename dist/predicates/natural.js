@@ -1,12 +1,11 @@
 'use strict';
 
 /**
- * Checks if value is a natural number (non-negative integer)
- *
- * @param {Number} value - Value
- * @returns {Boolean}
- */
-
+               * Checks if value is a natural number (non-negative integer)
+               *
+               * @param {Number} value - Value
+               * @returns {Boolean}
+               */
 function validate(value, options) {
   var disallowZero = options && options.disallowZero;
   return Number.isInteger(value) && isPositive(value, disallowZero);

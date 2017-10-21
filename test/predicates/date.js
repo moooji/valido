@@ -8,5 +8,5 @@ module.exports = [
   { value: true, result: false },
   { value: false, result: false },
   { value: new Date(), result: true },
-  { value: new Buffer('abc'), result: false },
+  { value: (2 ** 2) - 1, result: false },
 ];

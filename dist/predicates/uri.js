@@ -1,14 +1,12 @@
-'use strict';
-
-var re = require('../lib/rfc3986');
+'use strict';var re = require('../lib/rfc3986');
 var isString = require('./string');
 
 /**
- * Checks if string is a valid uri
- * @param {String} value - Value
- * @param {object} [options] - Additional options
- * @returns {Boolean}
- */
+                                     * Checks if string is a valid uri
+                                     * @param {String} value - Value
+                                     * @param {object} [options] - Additional options
+                                     * @returns {Boolean}
+                                     */
 
 function validate(value, options) {
   if (!isString(value)) {

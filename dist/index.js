@@ -41,8 +41,8 @@ var predicates = {
   undefined: isUndefined,
   function: isFunction,
   stream: isStream,
-  email: isEmail
-};
+  email: isEmail };
+
 
 var api = { all: {}, optional: {} };
 
@@ -50,41 +50,35 @@ var api = { all: {}, optional: {} };
 Object.getOwnPropertyNames(predicates).forEach(function (predicateName) {
   var predicate = predicates[predicateName];
   api[predicateName] = predicate;
-  api.all[predicateName] = function (values, options) {
-    return validateAll(values, predicate, options);
-  };
-  api.optional[predicateName] = function (value, options) {
-    return validateOptional(value, predicate, options);
-  };
+  api.all[predicateName] = function (values, options) {return validateAll(values, predicate, options);};
+  api.optional[predicateName] = function (value, options) {return validateOptional(value, predicate, options);};
 });
 
 /**
- * Validates a list of values
- *
- * @param {Array<*>} values - Values
- * @param {function} predicate - predicate
- * @param {object} options - Options
- * @returns {Boolean}
- */
+     * Validates a list of values
+     *
+     * @param {Array<*>} values - Values
+     * @param {function} predicate - predicate
+     * @param {object} options - Options
+     * @returns {Boolean}
+     */
 function validateAll(values, predicate, options) {
   if (!isArray(values)) {
     return false;
   }
 
-  return values.every(function (value) {
-    return predicate(value, options);
-  });
+  return values.every(function (value) {return predicate(value, options);});
 }
 
 /**
- * Validates an optional values
- * An optional value will always validate to true if null/undefined
- *
- * @param {*} value - Value
- * @param {function} predicate - predicate
- * @param {object} options - Options
- * @returns {Boolean}
- */
+   * Validates an optional values
+   * An optional value will always validate to true if null/undefined
+   *
+   * @param {*} value - Value
+   * @param {function} predicate - predicate
+   * @param {object} options - Options
+   * @returns {Boolean}
+   */
 function validateOptional(value, predicate, options) {
   if (!isExisty(value)) {
     return true;

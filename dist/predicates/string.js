@@ -1,13 +1,12 @@
 'use strict';
 
 /**
- * Checks if value is an array
- *
- * @param {String} value - Value
- * @param {object} [options] - Options
- * @returns {Boolean}
- */
-
+               * Checks if value is an array
+               *
+               * @param {String} value - Value
+               * @param {object} [options] - Options
+               * @returns {Boolean}
+               */
 function validate(value, options) {
   var isString = value instanceof String || typeof value === 'string';
 
