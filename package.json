@@ -9,8 +9,7 @@
     "deploy-minor": "npm version minor && npm publish && git add . && git commit -m",
     "deploy-major": "npm version major && npm publish && git add . && git commit -m",
     "transpile": "babel src --retain-lines --out-dir dist --copy-files",
-    "prepublish": "npm test && npm run generate-docs",
-    "generate-docs": "doxdox './src/*.js' --layout markdown --output README.md"
+    "prepublish": "npm test"
   },
   "engines": {
     "node": ">=6.5.0"
@@ -36,8 +35,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
-    "doxdox": "^2.0.3",
-    "eslint": "^4.9.0",
+    "eslint": "^4.11.0",
     "lodash": "^4.17.4",
     "mocha": "^4.0.1",
     "mocha-eslint": "^4.1.0"
