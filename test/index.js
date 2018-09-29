@@ -4,10 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const _ = require("lodash");
 const chai = require("chai");
-const valido = require("../dist/index");
+const valido = require("../index");
 const expect = chai.expect;
 
-const predicateDir = path.join(__dirname, "../dist/predicates");
+const predicateDir = path.join(__dirname, "../predicates");
 const predicateTestsDir = path.join(__dirname, "./predicates");
 const predicateFiles = fs.readdirSync(predicateDir);
 
