@@ -4,7 +4,7 @@ const isString = require('./string');
 const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/; // eslint-disable-line max-len
 
 /**
- * Checks if string is a valid uri
+ * Checks if string is a valid email
  * @param {String} value - Value
  * @param {object} [options] - Additional options
  * @returns {Boolean}
@@ -15,22 +15,22 @@ function validate(value, options) {
     return false;
   }
 
-  let isUri = value.match(re) !== null;
+  let isEmail = value.match(re) !== null;
 
   if (!options) {
-    return isUri;
+    return isEmail;
   }
 
   // Optional checks
   if (options.endsWith && !value.endsWith(options.endsWith)) {
-    isUri = false;
+    isEmail = false;
   }
 
   if (options.startsWith && !value.startsWith(options.startsWith)) {
-    isUri = false;
+    isEmail = false;
   }
 
-  return isUri;
+  return isEmail;
 }
 
 module.exports = validate;
